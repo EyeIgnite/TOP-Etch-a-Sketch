@@ -33,10 +33,17 @@ h1 {
   background-color: whitesmoke;
   border: 1px solid black;
   border-radius: .3rem;
+  transform: scale(1);
+}
+
+#clear:active {
+  transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
 }
 
 #clear:hover {
   background-color: lightgrey;
+  transform: scale(1.1) perspective(10px);
 }
 
 #container {
