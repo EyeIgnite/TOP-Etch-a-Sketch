@@ -45,6 +45,12 @@ btn.addEventListener('click', () => {
     }
   };
 
+  const existingGridSize = container.childElementCount;
+  const newSize = parseInt(input);
+
+  const rows = Math.sqrt((existingGridSize / 16) * newSize);
+  const columns = Math.sqrt((existingGridSize / 16) * newSize);
+
   while (container.childNodes.length > 2) {
     container.removeChild(container.lastChild);
   }
