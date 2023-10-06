@@ -9,3 +9,7 @@ body {
   height: 100vh;
   background-color: #18191A;
 }
+
+h1 {
+  color: lightgrey;
+}
