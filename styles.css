@@ -7,19 +7,23 @@
 body {
   min-height: 100vh;
   height: 100vh;
-  background-color: #18191A;
+  background-color: lightgrey;
 }
 
 h1 {
-  color: lightgrey;
+  color: black;
 }
 
 .container {
   display: flex;
 }
 
-.grid-rows,
+.grid-rows{
+  border: 1px solid black;
+  min-height: 20px;
+}
+
 .grid-column {
-  border: 1px solid white;
+  border: 1px solid black;
   min-height: 20px;
 }
