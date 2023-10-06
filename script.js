@@ -55,19 +55,17 @@ btn.addEventListener('click', () => {
     container.removeChild(container.lastChild);
   }
 
-  baseGrid(input);
+  baseGrid(rows, columns);
   
   const item = document.querySelectorAll('.grid-column');
   item.forEach((item) => {
     item.addEventListener('mouseover', () => {
       item.style.backgroundColor = 'black';
+    });
   });
 });
 
-
-});
-
-baseGrid();
+baseGrid(16, 16);
 
 const item = document.querySelectorAll('.grid-column');
 item.forEach((item) => {
