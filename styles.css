@@ -8,28 +8,33 @@ body {
   min-height: 100vh;
   height: 100vh;
   background-color: lightgrey;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 
 h1 {
   color: black;
+  margin-bottom: 75px;
+  font-size: 60px;
+  text-align: center;
+  text-decoration: underline;
+  font-family: monospace;
+  color: rgb(22, 21, 30);
 }
 
 #container {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .grid-rows{
   border: 1px solid black;
-  min-height: 50%;
 }
 
 .grid-column {
   border: 1px solid black;
-  min-height: 20px;
+  min-height: 30px;
   min-width: 30px;
 }
