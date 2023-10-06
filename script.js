@@ -5,7 +5,7 @@ const rows = document.getElementsByClassName('grid-rows');
 function baseGrid() {
   makeRows(16);
   makeColumns(16);
-}
+};
 
 function makeRows(rowVal) {
   for (let i = 0; i < rowVal; i++) {
@@ -49,7 +49,12 @@ btn.addEventListener('click', () => {
     break; 
     }
     else {
-      alert('Please enter a valid number');
+      alert('Please enter a valid number from 1 to 100');
     }
+  };
+
+  while (container.childNodes.length > 2) {
+    container.removeChild(container.lastChild);
   }
-})
+
+});
