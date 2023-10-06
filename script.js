@@ -1,10 +1,10 @@
 const container = document.querySelector('#container');
-const rows = document.getElementsByClassName('grid-rows');
+// const rows = document.getElementsByClassName('grid-rows');
 
 
-function baseGrid() {
-  makeRows(16);
-  makeColumns(16);
+function baseGrid(rows, columns) {
+  makeRows(rows);
+  makeColumns(columns);
 };
 
 function makeRows(rowVal) {
@@ -15,13 +15,14 @@ function makeRows(rowVal) {
 };
 
 function makeColumns(columnVal) {
-  for (let i = 0; i < rows.length; i++) {
+  const rows = document.querySelectorAll('.grid-rows');
+  rows.forEach((row) => {
     for (let c = 0; c < columnVal; c++) {
       let column = document.createElement('div');
-      rows[i].appendChild(column).classList.add('grid-column');
-    };
-  };
-};
+      row.appendChild(column).classList.add('grid-column');
+    }
+  });
+}
 
 const btn = document.querySelector('#clear');
 btn.addEventListener('click', () => {
@@ -48,14 +49,15 @@ btn.addEventListener('click', () => {
     container.removeChild(container.lastChild);
   }
 
-  baseGrid(numberInput);
+  baseGrid(input);
   
   const item = document.querySelectorAll('.grid-column');
   item.forEach((item) => {
     item.addEventListener('mouseover', () => {
       item.style.backgroundColor = 'black';
-    });
   });
+});
+
 
 });
 
