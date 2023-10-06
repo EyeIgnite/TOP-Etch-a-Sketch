@@ -27,7 +27,7 @@ baseGrid();
 
 const item = document.querySelectorAll('.grid-column');
 item.forEach((item) => {
-  item.addEventListener('mouseover', (e) => {
+  item.addEventListener('mouseover', () => {
     item.style.backgroundColor = 'black';
   });
 });
