@@ -13,3 +13,10 @@ function makeRows(rowVal) {
     container.appendChild(row).className('row');
   }
 }
+
+function makeColumns(columnVal) {
+  for (let c = 0; c < columnVal; c++) {
+    let column = document.createElement('div');
+    container.appendChild(column).className('column');
+  }
+}
