@@ -8,22 +8,28 @@ body {
   min-height: 100vh;
   height: 100vh;
   background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
   color: black;
 }
 
-.container {
+#container {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .grid-rows{
   border: 1px solid black;
-  min-height: 20px;
+  min-height: 50%;
 }
 
 .grid-column {
   border: 1px solid black;
   min-height: 20px;
+  min-width: 30px;
 }
