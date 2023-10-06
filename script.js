@@ -32,4 +32,5 @@ item.forEach((item) => {
   });
 });
 
+const btn = document.querySelector('#clear');
 
