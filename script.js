@@ -1,10 +1,10 @@
 const container = document.querySelector('#container');
-// const rows = document.getElementsByClassName('grid-rows');
+const rows = document.getElementsByClassName('grid-rows');
 
 
-function baseGrid(rows, columns) {
-  makeRows(rows);
-  makeColumns(columns);
+function baseGrid() {
+  makeRows(16);
+  makeColumns(16);
 };
 
 function makeRows(rowVal) {
@@ -15,14 +15,13 @@ function makeRows(rowVal) {
 };
 
 function makeColumns(columnVal) {
-  const rows = document.querySelectorAll('.grid-rows');
-  rows.forEach((row) => {
+  for (let i = 0; i < rows.length; i++) {
     for (let c = 0; c < columnVal; c++) {
       let column = document.createElement('div');
-      row.appendChild(column).classList.add('grid-column');
-    }
-  });
-}
+      rows[i].appendChild(column).classList.add('grid-column');
+    };
+  };
+};
 
 const btn = document.querySelector('#clear');
 btn.addEventListener('click', () => {
@@ -45,27 +44,23 @@ btn.addEventListener('click', () => {
     }
   };
 
-  const existingGridSize = container.childElementCount;
-  const newSize = parseInt(input);
-
-  const rows = Math.sqrt((existingGridSize / 16) * newSize);
-  const columns = Math.sqrt((existingGridSize / 16) * newSize);
-
   while (container.childNodes.length > 2) {
     container.removeChild(container.lastChild);
   }
 
-  baseGrid(rows, columns);
+  baseGrid(input);
   
   const item = document.querySelectorAll('.grid-column');
   item.forEach((item) => {
     item.addEventListener('mouseover', () => {
       item.style.backgroundColor = 'black';
-    });
   });
 });
 
-baseGrid(16, 16);
+
+});
+
+baseGrid();
 
 const item = document.querySelectorAll('.grid-column');
 item.forEach((item) => {
