@@ -23,15 +23,6 @@ function makeColumns(columnVal) {
   };
 };
 
-baseGrid();
-
-const item = document.querySelectorAll('.grid-column');
-item.forEach((item) => {
-  item.addEventListener('mouseover', () => {
-    item.style.backgroundColor = 'black';
-  });
-});
-
 const btn = document.querySelector('#clear');
 btn.addEventListener('click', () => {
   let input;
@@ -57,4 +48,24 @@ btn.addEventListener('click', () => {
     container.removeChild(container.lastChild);
   }
 
+  baseGrid(numberInput);
+  
+  const item = document.querySelectorAll('.grid-column');
+  item.forEach((item) => {
+    item.addEventListener('mouseover', () => {
+      item.style.backgroundColor = 'black';
+    });
+  });
+
 });
+
+baseGrid();
+
+const item = document.querySelectorAll('.grid-column');
+item.forEach((item) => {
+  item.addEventListener('mouseover', () => {
+    item.style.backgroundColor = 'black';
+  });
+});
+
+
