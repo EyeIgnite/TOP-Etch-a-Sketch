@@ -33,4 +33,23 @@ item.forEach((item) => {
 });
 
 const btn = document.querySelector('#clear');
+btn.addEventListener('click', () => {
+  let input;
 
+  while(true) {
+    input = prompt('Enter a value up to 100 for a new grid!');
+
+    if (input === null) {
+      break;
+    }
+
+    const numberInput = parseInt(input);
+
+    if (!isNaN(numberInput) && numberInput >= 1 && numberInput <= 100) {
+    break; 
+    }
+    else {
+      alert('Please enter a valid number');
+    }
+  }
+})
