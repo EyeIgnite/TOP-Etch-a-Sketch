@@ -11,6 +11,7 @@ function makeRows(rowVal) {
   for (let i = 0; i < rowVal; i++) {
     let row = document.createElement('div');
     container.appendChild(row).classList.add('grid-rows');
+    row.classList.add('grid-item');
   };
 };
 
@@ -19,8 +20,11 @@ function makeColumns(columnVal) {
     for (let c = 0; c < columnVal; c++) {
       let column = document.createElement('div');
       rows[i].appendChild(column).classList.add('grid-column');
+      column.classList.add('grid-item');
     };
   };
 };
 
+
 baseGrid();
+
