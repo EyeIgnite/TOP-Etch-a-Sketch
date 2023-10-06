@@ -13,3 +13,13 @@ body {
 h1 {
   color: lightgrey;
 }
+
+.container {
+  display: flex;
+}
+
+.grid-rows,
+.grid-column {
+  border: 1px solid white;
+  min-height: 20px;
+}
