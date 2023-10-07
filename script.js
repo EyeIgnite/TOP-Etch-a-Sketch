@@ -1,4 +1,4 @@
-const rows = document.getElementsByClassName('grid-rows');
+const rows = document.getElementsByClassName('sketch-grid');
 const gridContainer = document.querySelector('.grid-container');
 
 function baseGrid(row, column) {
@@ -19,7 +19,7 @@ item.forEach((item) => {
 function makeRows(rowVal) {
   for (let i = 0; i < rowVal; i++) {
     let row = document.createElement('div');
-    gridContainer.appendChild(row).classList.add('grid-rows');
+    gridContainer.appendChild(row).classList.add('sketch-grid');
   };
 };
 
