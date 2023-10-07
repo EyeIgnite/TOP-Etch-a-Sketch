@@ -1,26 +1,11 @@
 const rows = document.getElementsByClassName('grid-rows');
+const columns = document.getElementsByClassName('grid-column');
 const gridContainer = document.querySelector('.grid-container');
 
 function baseGrid(row, column) {
   makeRows(row);
   makeColumns(column);
-};
-
-function makeRows(rowVal) {
-  for (let i = 0; i < rowVal; i++) {
-    let row = document.createElement('div');
-    gridContainer.appendChild(row).classList.add('grid-rows');
-  };
-};
-
-function makeColumns(columnVal) {
-  for (let i = 0; i < rows.length; i++) {
-    for (let c = 0; c < columnVal; c++) {
-      let column = document.createElement('div');
-      rows[i].appendChild(column).classList.add('grid-column');
-    };
-  };
-};
+}
 
 baseGrid(16, 16);
 
@@ -31,9 +16,27 @@ item.forEach((item) => {
   });
 });
 
+function makeRows(rowVal) {
+  for (let i = 0; i < rowVal; i++) {
+    let row = document.createElement('div');
+    gridContainer.appendChild(row).classList.add('grid-rows');
+  }
+}
+
+function makeColumns(columnVal) {
+  for (let i = 0; i < rows.length; i++) {
+    for (let c = 0; c < columnVal; c++) {
+      let column = document.createElement('div');
+      rows[i].appendChild(column).classList.add('grid-column');
+    }
+  }
+}
+
+let input;
+
 const btn = document.querySelector('#clear');
 btn.addEventListener('click', () => {
-  let input;
+  
 
   while(true) {
     input = prompt('Enter a number up to 100 for a new grid!');
@@ -50,8 +53,7 @@ btn.addEventListener('click', () => {
     else {
       alert('Please enter a valid number from 1 to 100');
     }
-  };
-
+  }
   while (gridContainer.childNodes.length > 0) {
     gridContainer.removeChild(gridContainer.lastChild);
   }
@@ -66,6 +68,9 @@ btn.addEventListener('click', () => {
   });
 });
 
+function resizeGrid(input) {
+
+}
 
 
 
