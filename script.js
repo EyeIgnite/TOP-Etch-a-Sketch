@@ -3,8 +3,8 @@ const gridContainer = document.querySelector('.grid-container');
 
 // Creates default 16x16 grid
 function baseGrid(column, cell) {
-  makeRows(column);
-  makeColumns(cell);
+  makeColumns(column);
+  makeCells(cell);
 };
 
 baseGrid(16, 16);
@@ -17,13 +17,13 @@ item.forEach((item) => {
 });
 
 // Functions used to create the columns and cells in the DOM
-function makeRows(columnVal) {
+function makeColumns(columnVal) {
   for (let i = 0; i < columnVal; i++) {
     let column = document.createElement('div');
     gridContainer.appendChild(column).classList.add('sketch-columns');
   };
 };
-function makeColumns(cellVal) {
+function makeCells(cellVal) {
   for (let i = 0; i < rows.length; i++) {
     for (let c = 0; c < cellVal; c++) {
       let cell = document.createElement('div');
