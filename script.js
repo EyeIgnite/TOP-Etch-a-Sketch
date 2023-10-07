@@ -1,4 +1,4 @@
-const rows = document.getElementsByClassName('grid-rows');
+// const rows = document.getElementsByClassName('grid-rows');
 const gridContainer = document.querySelector('.grid-container');
 
 function makeRows(rowVal, cellSize) {
@@ -10,12 +10,14 @@ function makeRows(rowVal, cellSize) {
 };
 
 function makeColumns(columnVal, cellSize) {
-  for (let i = 0; i < rows.length; i++) {
+  const rows = document.querySelectorAll('.grid-rows');
+  rows.forEach((row) => {
     for (let c = 0; c < columnVal; c++) {
       let column = document.createElement('div');
+      column.style.width = cellSize + 'px';
       rows[i].appendChild(column).classList.add('grid-column');
     };
-  };
+  });
 };
 
 const btn = document.querySelector('#clear');
