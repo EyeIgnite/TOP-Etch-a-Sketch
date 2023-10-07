@@ -44,8 +44,8 @@ btn.addEventListener('click', () => {
     }
   };
 
-  while (container.childNodes.length > 2) {
-    container.removeChild(container.lastChild);
+  while (gridContainer.childNodes.length > 1) {
+    gridContainer.removeChild(gridContainer.lastChild);
   }
 
   baseGrid();
