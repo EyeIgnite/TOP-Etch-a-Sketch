@@ -1,15 +1,15 @@
 const rows = document.getElementsByClassName('grid-rows');
 const gridContainer = document.querySelector('.grid-container');
 
-
-function makeRows(rowVal) {
+function makeRows(rowVal, cellSize) {
   for (let i = 0; i < rowVal; i++) {
     let row = document.createElement('div');
+    row.style.height = cellSize + 'px';
     gridContainer.appendChild(row).classList.add('grid-rows');
   };
 };
 
-function makeColumns(columnVal) {
+function makeColumns(columnVal, cellSize) {
   for (let i = 0; i < rows.length; i++) {
     for (let c = 0; c < columnVal; c++) {
       let column = document.createElement('div');
