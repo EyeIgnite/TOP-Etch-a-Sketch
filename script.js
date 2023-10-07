@@ -1,23 +1,26 @@
-// const rows = document.getElementsByClassName('grid-rows');
+const container = document.querySelector('#container');
+const rows = document.getElementsByClassName('grid-rows');
 const gridContainer = document.querySelector('.grid-container');
 
-function makeRows(rowVal, cellSize) {
+function baseGrid() {
+  makeRows(16);
+  makeColumns(16);
+};
+
+function makeRows(rowVal) {
   for (let i = 0; i < rowVal; i++) {
     let row = document.createElement('div');
-    row.style.height = cellSize + 'px';
     gridContainer.appendChild(row).classList.add('grid-rows');
   };
 };
 
-function makeColumns(columnVal, cellSize) {
-  const rows = document.querySelectorAll('.grid-rows');
-  rows.forEach((row) => {
+function makeColumns(columnVal) {
+  for (let i = 0; i < rows.length; i++) {
     for (let c = 0; c < columnVal; c++) {
       let column = document.createElement('div');
-      column.style.width = cellSize + 'px';
       rows[i].appendChild(column).classList.add('grid-column');
     };
-  });
+  };
 };
 
 const btn = document.querySelector('#clear');
@@ -26,11 +29,13 @@ btn.addEventListener('click', () => {
 
   while(true) {
     input = prompt('Enter a number up to 100 for a new grid!');
+
     if (input === null) {
       return;
     }
 
     const numberInput = parseInt(input);
+
     if (numberInput >= 1 && numberInput <= 100) {
     break; 
     }
@@ -38,16 +43,12 @@ btn.addEventListener('click', () => {
       alert('Please enter a valid number from 1 to 100');
     }
   };
+
   while (gridContainer.childNodes.length > 0) {
     gridContainer.removeChild(gridContainer.lastChild);
   }
 
-  function newGrid(input) {
-    makeRows(input);
-    makeColumns(input);
-  }
-
-  newGrid(input)
+  baseGrid();
   
   const item = document.querySelectorAll('.grid-column');
   item.forEach((item) => {
