@@ -44,11 +44,11 @@ btn.addEventListener('click', () => {
     }
   };
 
-  while (gridContainer.childNodes.length > 1) {
+  while (gridContainer.childNodes.length > 0) {
     gridContainer.removeChild(gridContainer.lastChild);
   }
 
-  baseGrid();
+  baseGrid(input);
   
   const item = document.querySelectorAll('.grid-column');
   item.forEach((item) => {
