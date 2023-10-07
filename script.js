@@ -1,10 +1,6 @@
 const rows = document.getElementsByClassName('grid-rows');
 const gridContainer = document.querySelector('.grid-container');
 
-function baseGrid() {
-  makeRows(16);
-  makeColumns(16);
-};
 
 function makeRows(rowVal) {
   for (let i = 0; i < rowVal; i++) {
@@ -28,13 +24,11 @@ btn.addEventListener('click', () => {
 
   while(true) {
     input = prompt('Enter a number up to 100 for a new grid!');
-
     if (input === null) {
       return;
     }
 
     const numberInput = parseInt(input);
-
     if (numberInput >= 1 && numberInput <= 100) {
     break; 
     }
@@ -42,12 +36,16 @@ btn.addEventListener('click', () => {
       alert('Please enter a valid number from 1 to 100');
     }
   };
-
   while (gridContainer.childNodes.length > 0) {
     gridContainer.removeChild(gridContainer.lastChild);
   }
 
-  baseGrid(input);
+  function newGrid(input) {
+    makeRows(input);
+    makeColumns(input);
+  }
+
+  newGrid(input)
   
   const item = document.querySelectorAll('.grid-column');
   item.forEach((item) => {
