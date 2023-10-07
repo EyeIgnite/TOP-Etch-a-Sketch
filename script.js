@@ -8,7 +8,7 @@ function baseGrid(column, cell) {
 };
 
 baseGrid(16, 16);
-// Switches color to black when you mouseover each div
+// Switches color to black when you mouseover each cell
 const item = document.querySelectorAll('.cells');
 item.forEach((item) => {
   item.addEventListener('mouseover', () => {
@@ -16,7 +16,7 @@ item.forEach((item) => {
   });
 });
 
-// Functions used in baseGrid() to create the default
+// Functions used to create the columns and cells in the DOM
 function makeRows(columnVal) {
   for (let i = 0; i < columnVal; i++) {
     let column = document.createElement('div');
@@ -35,10 +35,10 @@ function makeColumns(cellVal) {
 const btn = document.querySelector('#clear');
 btn.addEventListener('click', () => {
   let input;
-  // Repeats until a number between 1-100 typed in
+  // Repeats until a number between 1-100 is typed in
   while(true) {
     input = prompt('Enter a number from 1-100 to create a new grid with those dimensions!');
-    // Exits function is user hits cancel on the prompt
+    // Exits function if user cancels the prompt 
     if (input === null) {
       return;
     }
@@ -56,7 +56,7 @@ btn.addEventListener('click', () => {
   while (gridContainer.childNodes.length > 0) {
     gridContainer.removeChild(gridContainer.lastChild);
   }
-
+  // Creates a new grid with the user's input
   baseGrid(input, input);
   // Adds mouseoever event to the newly created grid
   const item = document.querySelectorAll('.cells');
