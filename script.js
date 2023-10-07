@@ -1,4 +1,3 @@
-const container = document.querySelector('#container');
 const rows = document.getElementsByClassName('grid-rows');
 const gridContainer = document.querySelector('.grid-container');
 
@@ -22,6 +21,15 @@ function makeColumns(columnVal) {
     };
   };
 };
+
+baseGrid(16, 16);
+
+const item = document.querySelectorAll('.grid-column');
+item.forEach((item) => {
+  item.addEventListener('mouseover', () => {
+    item.style.backgroundColor = 'black';
+  });
+});
 
 const btn = document.querySelector('#clear');
 btn.addEventListener('click', () => {
@@ -58,13 +66,6 @@ btn.addEventListener('click', () => {
   });
 });
 
-baseGrid(16, 16);
 
-const item = document.querySelectorAll('.grid-column');
-item.forEach((item) => {
-  item.addEventListener('mouseover', () => {
-    item.style.backgroundColor = 'black';
-  });
-});
 
 
