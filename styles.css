@@ -44,25 +44,28 @@ h1 {
   transform: scale(1.1) perspective(10px);
 }
 
-.grid-container {
-  display: flex;
-  box-shadow: 1px 1px 10px 1px;
-  max-width: 960px;
-  max-height: 960px;
-}
-
 #container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.grid-rows{
+.grid-container {
+  display: flex;
+  box-shadow: 1px 1px 10px 1px;
+  width: 480px;
+  height: 480px;
+}
+
+.sketch-grid{
   background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  height: 480px;
+  width: 480px;
+  flex-direction: column;
 }
 
 .grid-column {
-  min-height: 30px;
-  min-width: 30px;
-  flex-basis: calc(100%/16);
+  flex: 1;
 }
