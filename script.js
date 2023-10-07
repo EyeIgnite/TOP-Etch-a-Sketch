@@ -1,6 +1,6 @@
 const container = document.querySelector('#container');
 const rows = document.getElementsByClassName('grid-rows');
-
+const gridContainer = document.querySelector('.grid-container');
 
 function baseGrid() {
   makeRows(16);
@@ -10,7 +10,7 @@ function baseGrid() {
 function makeRows(rowVal) {
   for (let i = 0; i < rowVal; i++) {
     let row = document.createElement('div');
-    container.appendChild(row).classList.add('grid-rows');
+    gridContainer.appendChild(row).classList.add('grid-rows');
   };
 };
 
