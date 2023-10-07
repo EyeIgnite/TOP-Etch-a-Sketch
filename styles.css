@@ -57,7 +57,7 @@ h1 {
   height: 480px;
 }
 
-.sketch-grid{
+.sketch-columns{
   background-color: white;
   display: flex;
   flex-wrap: wrap;
