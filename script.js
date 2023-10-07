@@ -1,4 +1,3 @@
-const container = document.querySelector('#container');
 const rows = document.getElementsByClassName('grid-rows');
 const gridContainer = document.querySelector('.grid-container');
 
