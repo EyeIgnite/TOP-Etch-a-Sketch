@@ -31,7 +31,7 @@ btn.addEventListener('click', () => {
     input = prompt('Enter a number up to 100 for a new grid!');
 
     if (input === null) {
-      break;
+      return;
     }
 
     const numberInput = parseInt(input);
