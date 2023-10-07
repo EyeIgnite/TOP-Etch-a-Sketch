@@ -47,6 +47,8 @@ h1 {
 .grid-container {
   display: flex;
   box-shadow: 1px 1px 10px 1px;
+  max-width: 960px;
+  max-height: 960px;
 }
 
 #container {
