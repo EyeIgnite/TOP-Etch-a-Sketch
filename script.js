@@ -36,7 +36,7 @@ btn.addEventListener('click', () => {
 
     const numberInput = parseInt(input);
 
-    if (!isNaN(numberInput) && numberInput >= 1 && numberInput <= 100) {
+    if (numberInput >= 1 && numberInput <= 100) {
     break; 
     }
     else {
@@ -48,16 +48,14 @@ btn.addEventListener('click', () => {
     container.removeChild(container.lastChild);
   }
 
-  baseGrid(input);
+  baseGrid();
   
   const item = document.querySelectorAll('.grid-column');
   item.forEach((item) => {
     item.addEventListener('mouseover', () => {
       item.style.backgroundColor = 'black';
+    });
   });
-});
-
-
 });
 
 baseGrid();
