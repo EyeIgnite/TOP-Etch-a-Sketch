@@ -28,7 +28,7 @@ btn.addEventListener('click', () => {
   let input;
 
   while(true) {
-    input = prompt('Enter a value up to 100 for a new grid!');
+    input = prompt('Enter a number up to 100 for a new grid!');
 
     if (input === null) {
       break;
