@@ -8,7 +8,7 @@ function baseGrid(row, column) {
 
 baseGrid(16, 16);
 
-const item = document.querySelectorAll('.grid-column');
+const item = document.querySelectorAll('.cells');
 item.forEach((item) => {
   item.addEventListener('mouseover', () => {
     item.style.backgroundColor = 'black';
@@ -27,7 +27,7 @@ function makeColumns(columnVal) {
   for (let i = 0; i < rows.length; i++) {
     for (let c = 0; c < columnVal; c++) {
       let column = document.createElement('div');
-      rows[i].appendChild(column).classList.add('grid-column');
+      rows[i].appendChild(column).classList.add('cells');
     };
   };
 };
@@ -59,7 +59,7 @@ btn.addEventListener('click', () => {
 
   baseGrid(input, input);
   
-  const item = document.querySelectorAll('.grid-column');
+  const item = document.querySelectorAll('.cells');
   item.forEach((item) => {
     item.addEventListener('mouseover', () => {
       item.style.backgroundColor = 'black';

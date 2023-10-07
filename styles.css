@@ -66,6 +66,6 @@ h1 {
   flex-direction: column;
 }
 
-.grid-column {
+.cells {
   flex: 1;
 }
