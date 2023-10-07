@@ -1,9 +1,9 @@
 const rows = document.getElementsByClassName('sketch-columns');
 const gridContainer = document.querySelector('.grid-container');
 
-function baseGrid(row, column) {
-  makeRows(row);
-  makeColumns(column);
+function baseGrid(column, cell) {
+  makeRows(column);
+  makeColumns(cell);
 };
 
 baseGrid(16, 16);
@@ -16,18 +16,18 @@ item.forEach((item) => {
 });
 
 
-function makeRows(rowVal) {
-  for (let i = 0; i < rowVal; i++) {
+function makeRows(columnVal) {
+  for (let i = 0; i < columnVal; i++) {
     let row = document.createElement('div');
     gridContainer.appendChild(row).classList.add('sketch-columns');
   };
 };
 
-function makeColumns(columnVal) {
+function makeColumns(cellVal) {
   for (let i = 0; i < rows.length; i++) {
-    for (let c = 0; c < columnVal; c++) {
-      let column = document.createElement('div');
-      rows[i].appendChild(column).classList.add('cells');
+    for (let c = 0; c < cellVal; c++) {
+      let cell = document.createElement('div');
+      rows[i].appendChild(cell).classList.add('cells');
     };
   };
 };
