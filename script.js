@@ -40,7 +40,7 @@ const resizeBtn = document.querySelector('#resize');
 resizeBtn.addEventListener('click', () => {
   // Repeats until a number between 1-100 is typed in
   while(true) {
-    input = prompt('Enter a number from 1-100 to create a new grid with those dimensions!');
+    input = prompt('Enter a number from 1-100 for a new sketchpad!');
     // Exits function if user cancels the prompt 
     if (input === null) {
       return;
