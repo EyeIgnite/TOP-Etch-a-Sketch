@@ -127,3 +127,15 @@ rgbBtn.addEventListener('click', () => {
     });
   });
 });
+
+const greyScale = document.querySelector('#grey-scale');
+
+
+greyScale.addEventListener('click', () => {
+  const item = document.querySelectorAll('.cells');
+  item.forEach((item) => {
+    item.addEventListener('mouseover', () => {
+      item.style.backgroundColor = progressiveDarken(item);
+    });
+  });
+});
