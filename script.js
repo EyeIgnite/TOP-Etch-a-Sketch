@@ -34,7 +34,7 @@ function makeCells(cellVal) {
   };
 };
 
-// Button event to clear the current grid and replace it with user input
+// Click event to clear the current grid and replace it with user input
 const resizeBtn = document.querySelector('#resize');
 resizeBtn.addEventListener('click', () => {
   // Repeats until a number between 1-100 is typed in
@@ -60,7 +60,7 @@ resizeBtn.addEventListener('click', () => {
   while (gridContainer.childNodes.length > 0) {
     gridContainer.removeChild(gridContainer.lastChild);
   }
-  // Creates a new grid with the user's input
+  
   baseGrid(input, input);
   // Adds mouseoever event to the newly created grid
   const item = document.querySelectorAll('.cells');
@@ -71,13 +71,14 @@ resizeBtn.addEventListener('click', () => {
   });
 });
 
+// Click event to clear the current grid of all colour
 const clearBtn = document.querySelector('#clear');
 clearBtn.addEventListener('click', () => {
 
   while (gridContainer.childNodes.length > 0) {
     gridContainer.removeChild(gridContainer.lastChild);
   }
-
+  // Uses the stored grid values from user input to keep cells the same size after clearing
   baseGrid(storedSize.columns, storedSize.cells);
 
   const item = document.querySelectorAll('.cells');
@@ -97,5 +98,3 @@ eraserBtn.addEventListener('click', () => {
     });
   });
 })
-
-// Eraser is easy enough. Just add a click event to the button that changes each item to white
