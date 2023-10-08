@@ -81,8 +81,7 @@ button:hover {
   background-color: white;
   display: flex;
   flex-wrap: wrap;
-  height: 480px;
-  width: 480px;
+  flex: 1;
   flex-direction: column;
 }
 
