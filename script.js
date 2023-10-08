@@ -1,7 +1,8 @@
-const rows = document.getElementsByClassName('sketch-columns');
+const columns = document.getElementsByClassName('sketch-columns');
 const gridContainer = document.querySelector('.grid-container');
 let  storedSize = { columns: 16, cells: 16 };
 let input;
+
 
 // Creates default grid
 function baseGrid(column, cell) {
@@ -26,10 +27,10 @@ function makeColumns(columnVal) {
   };
 };
 function makeCells(cellVal) {
-  for (let i = 0; i < rows.length; i++) {
+  for (let i = 0; i < columns.length; i++) {
     for (let c = 0; c < cellVal; c++) {
       let cell = document.createElement('div');
-      rows[i].appendChild(cell).classList.add('cells');
+      columns[i].appendChild(cell).classList.add('cells');
     };
   };
 };
@@ -107,4 +108,9 @@ blackBtn.addEventListener('click', () => {
       item.style.backgroundColor = 'black';
     });
   });
+})
+
+const rgbBtn = document.querySelector('#rgb');
+rgbBtn.addEventListener('click', () => {
+  const item = document.querySelectorAll('.cells');
 })
