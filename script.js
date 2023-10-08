@@ -60,7 +60,7 @@ resizeBtn.addEventListener('click', () => {
   while (gridContainer.childNodes.length > 0) {
     gridContainer.removeChild(gridContainer.lastChild);
   }
-  
+
   baseGrid(input, input);
   // Adds mouseoever event to the newly created grid
   const item = document.querySelectorAll('.cells');
@@ -88,13 +88,23 @@ clearBtn.addEventListener('click', () => {
     });
   });
 });
-
+// Click event to turn all cells from black to white on mouseover
 const eraserBtn = document.querySelector('#eraser');
 eraserBtn.addEventListener('click', () => {
   const item = document.querySelectorAll('.cells');
   item.forEach((item) => {
     item.addEventListener('mouseover', () => {
       item.style.backgroundColor = 'white';
+    });
+  });
+})
+
+const blackBtn = document.querySelector('#black');
+blackBtn.addEventListener('click', () => {
+  const item = document.querySelectorAll('.cells');
+  item.forEach((item) => {
+    item.addEventListener('mouseover', () => {
+      item.style.backgroundColor = 'black';
     });
   });
 })

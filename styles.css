@@ -28,7 +28,7 @@ h1 {
 }
 
 button {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   padding: 8px 20px;
   font-size: 15px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -44,6 +44,11 @@ button:active {
 button:hover {
   background-color: lightgrey;
   transform: scale(1.1) perspective(10px);
+}
+
+#black {
+  color: whitesmoke;
+  background-color: #1B1B1B;
 }
 
 #container {
