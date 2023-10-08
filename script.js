@@ -1,7 +1,9 @@
 const rows = document.getElementsByClassName('sketch-columns');
 const gridContainer = document.querySelector('.grid-container');
+let  storedSize = { columns: 16, cells: 16 };
+let input;
 
-// Creates default 16x16 grid
+// Creates default grid
 function baseGrid(column, cell) {
   makeColumns(column);
   makeCells(cell);
@@ -31,10 +33,10 @@ function makeCells(cellVal) {
     };
   };
 };
+
 // Button event to clear the current grid
-const btn = document.querySelector('#clear');
-btn.addEventListener('click', () => {
-  let input;
+const resizeBtn = document.querySelector('#resize');
+resizeBtn.addEventListener('click', () => {
   // Repeats until a number between 1-100 is typed in
   while(true) {
     input = prompt('Enter a number from 1-100 to create a new grid with those dimensions!');
@@ -52,6 +54,8 @@ btn.addEventListener('click', () => {
       alert('Please enter a valid number from 1 to 100');
     }
   };
+
+  storedSize = { columns: input, cells: input }
   // Checks the length of gridContainer's children and removes them until none are left
   while (gridContainer.childNodes.length > 0) {
     gridContainer.removeChild(gridContainer.lastChild);
@@ -67,6 +71,22 @@ btn.addEventListener('click', () => {
   });
 });
 
+const clearBtn = document.querySelector('#clear');
+clearBtn.addEventListener('click', () => {
+
+  while (gridContainer.childNodes.length > 0) {
+    gridContainer.removeChild(gridContainer.lastChild);
+  }
+
+  baseGrid(storedSize.columns, storedSize.cells);
+
+  const item = document.querySelectorAll('.cells');
+  item.forEach((item) => {
+    item.addEventListener('mouseover', () => {
+      item.style.backgroundColor = 'black';
+    });
+  });
+});
 
 
 // Eraser is easy enough. Just add a click event to the button that changes each item to white

@@ -25,7 +25,7 @@ h1 {
   text-align: center;
 }
 
-#clear {
+#resize {
   margin-bottom: 20px;
   padding: 8px 20px;
   font-size: 15px;
@@ -34,12 +34,12 @@ h1 {
   border-radius: .3rem;
 }
 
-#clear:active {
+#resize:active {
   transform: translate(0px, 1px);
   box-shadow: 0px 1px 0px 0px;
 }
 
-#clear:hover {
+#resize:hover {
   background-color: lightgrey;
   transform: scale(1.1) perspective(10px);
 }
