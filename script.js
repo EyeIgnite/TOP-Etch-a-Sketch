@@ -110,7 +110,20 @@ blackBtn.addEventListener('click', () => {
   });
 })
 
+function randomColor() {
+  let color = [];
+  for (let i = 0; i < 3; i++) {
+    color.push(Math.floor(Math.random() * 256));
+  }
+  return 'rgb(' + color.join(', ') + ')';
+}
+
 const rgbBtn = document.querySelector('#rgb');
 rgbBtn.addEventListener('click', () => {
   const item = document.querySelectorAll('.cells');
-})
+  item.forEach((item) => {
+    item.addEventListener('mouseover', event => {
+      event.target.style.backgroundColor = randomColor();
+    });
+  });
+});
