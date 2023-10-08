@@ -12,8 +12,8 @@ function baseGrid(column, cell) {
 
 baseGrid(16, 16);
 // Switches color to black when you mouseover each cell/square
-const item = document.querySelectorAll('.cells');
-item.forEach((item) => {
+const items = document.querySelectorAll('.cells');
+items.forEach((item) => {
   item.addEventListener('mouseover', () => {
     item.style.backgroundColor = 'black';
   });
@@ -64,8 +64,8 @@ resizeBtn.addEventListener('click', () => {
 
   baseGrid(input, input);
   // Adds mouseoever event to the newly created grid
-  const item = document.querySelectorAll('.cells');
-  item.forEach((item) => {
+  const items = document.querySelectorAll('.cells');
+  items.forEach((item) => {
     item.addEventListener('mouseover', () => {
       item.style.backgroundColor = 'black';
     });
@@ -82,8 +82,8 @@ clearBtn.addEventListener('click', () => {
   // Uses the stored grid values from user input to keep cells the same size after clearing
   baseGrid(storedSize.columns, storedSize.cells);
 
-  const item = document.querySelectorAll('.cells');
-  item.forEach((item) => {
+  const items = document.querySelectorAll('.cells');
+  items.forEach((item) => {
     item.addEventListener('mouseover', () => {
       item.style.backgroundColor = 'black';
     });
@@ -92,8 +92,8 @@ clearBtn.addEventListener('click', () => {
 // Click event to turn all cells from black to white on mouseover
 const eraserBtn = document.querySelector('#eraser');
 eraserBtn.addEventListener('click', () => {
-  const item = document.querySelectorAll('.cells');
-  item.forEach((item) => {
+  const items = document.querySelectorAll('.cells');
+  items.forEach((item) => {
     item.addEventListener('mouseover', () => {
       item.style.backgroundColor = 'white';
     });
@@ -102,8 +102,8 @@ eraserBtn.addEventListener('click', () => {
 
 const blackBtn = document.querySelector('#black');
 blackBtn.addEventListener('click', () => {
-  const item = document.querySelectorAll('.cells');
-  item.forEach((item) => {
+  const items = document.querySelectorAll('.cells');
+  items.forEach((item) => {
     item.addEventListener('mouseover', () => {
       item.style.backgroundColor = 'black';
     });
@@ -120,8 +120,8 @@ function randomColor() {
 
 const rgbBtn = document.querySelector('#rgb');
 rgbBtn.addEventListener('click', () => {
-  const item = document.querySelectorAll('.cells');
-  item.forEach((item) => {
+  const items = document.querySelectorAll('.cells');
+  items.forEach((item) => {
     item.addEventListener('mouseover', () => {
       item.style.backgroundColor = randomColor();
     });
@@ -130,12 +130,19 @@ rgbBtn.addEventListener('click', () => {
 
 const greyScale = document.querySelector('#grey-scale');
 
+function progressiveDarken(count) {
+  const brightness = 100 - count * 10;
+  return `hsl(0, 0%, ${brightness}%)`;
+}
 
 greyScale.addEventListener('click', () => {
-  const item = document.querySelectorAll('.cells');
-  item.forEach((item) => {
+  const items = document.querySelectorAll('.cells');
+  items.forEach((item) => {
+    let mouseoverCount = 0;
     item.addEventListener('mouseover', () => {
-      item.style.backgroundColor = progressiveDarken(item);
+      mouseoverCount = Math.min(mouseoverCount + 1, 10);
+      const darkenedColor = progressiveDarken(mouseoverCount);
+      item.style.backgroundColor = darkenedColor;
     });
   });
 });
