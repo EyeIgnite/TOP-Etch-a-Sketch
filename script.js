@@ -10,7 +10,7 @@ function baseGrid(column, cell) {
 };
 
 baseGrid(16, 16);
-// Switches color to black when you mouseover each cell
+// Switches color to black when you mouseover each cell/square
 const item = document.querySelectorAll('.cells');
 item.forEach((item) => {
   item.addEventListener('mouseover', () => {
@@ -34,7 +34,7 @@ function makeCells(cellVal) {
   };
 };
 
-// Button event to clear the current grid
+// Button event to clear the current grid and replace it with user input
 const resizeBtn = document.querySelector('#resize');
 resizeBtn.addEventListener('click', () => {
   // Repeats until a number between 1-100 is typed in
