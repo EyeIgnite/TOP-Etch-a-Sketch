@@ -26,6 +26,13 @@ h1 {
   gap: 15px;
 }
 
+#grey-scale {
+  margin-right: 402px;
+  margin-bottom: 15px;
+  background-color: grey;
+  color: whitesmoke;
+}
+
 button {
   width: 85px;
   margin-bottom: 30px;
