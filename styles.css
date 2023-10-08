@@ -7,7 +7,7 @@
 body {
   min-height: 100vh;
   height: 100vh;
-  background-color: grey;
+  background-color: darkgrey;
 }
 
 h1 {
@@ -22,10 +22,12 @@ h1 {
 
 .btn-container {
   width: 100%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 17px;
 }
 
-#resize {
+button {
   margin-bottom: 20px;
   padding: 8px 20px;
   font-size: 15px;
@@ -34,12 +36,12 @@ h1 {
   border-radius: .3rem;
 }
 
-#resize:active {
+button:active {
   transform: translate(0px, 1px);
   box-shadow: 0px 1px 0px 0px;
 }
 
-#resize:hover {
+button:hover {
   background-color: lightgrey;
   transform: scale(1.1) perspective(10px);
 }
