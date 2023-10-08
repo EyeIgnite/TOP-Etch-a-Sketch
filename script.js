@@ -88,5 +88,14 @@ clearBtn.addEventListener('click', () => {
   });
 });
 
+const eraserBtn = document.querySelector('#eraser');
+eraserBtn.addEventListener('click', () => {
+  const item = document.querySelectorAll('.cells');
+  item.forEach((item) => {
+    item.addEventListener('mouseover', () => {
+      item.style.backgroundColor = 'white';
+    });
+  });
+})
 
 // Eraser is easy enough. Just add a click event to the button that changes each item to white
