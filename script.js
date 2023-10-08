@@ -122,8 +122,8 @@ const rgbBtn = document.querySelector('#rgb');
 rgbBtn.addEventListener('click', () => {
   const item = document.querySelectorAll('.cells');
   item.forEach((item) => {
-    item.addEventListener('mouseover', event => {
-      event.target.style.backgroundColor = randomColor();
+    item.addEventListener('mouseover', () => {
+      item.style.backgroundColor = randomColor();
     });
   });
 });
