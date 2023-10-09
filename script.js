@@ -89,7 +89,7 @@ clearBtn.addEventListener('click', () => {
     });
   });
 });
-// Click event to turn all cells from black to white on mouseover
+// Click event to turn cells from black to white on mouseover
 const eraserBtn = document.querySelector('#eraser');
 eraserBtn.addEventListener('click', () => {
   const cells = document.querySelectorAll('.cells');
@@ -109,15 +109,18 @@ blackBtn.addEventListener('click', () => {
     });
   });
 })
-
+// Function for random rgb 
 function randomColor() {
+  // Store empty array
   let color = [];
+  // Generates 3 random values for R, G, and B and pushes them into empty array
   for (let i = 0; i < 3; i++) {
     color.push(Math.floor(Math.random() * 256));
   }
+  //Combines the above into one string 'rgb(num1, num2, num3);
   return 'rgb(' + color.join(', ') + ')';
 }
-
+// Event using above function for random rgb every time you mouseover a cell
 const rgbBtn = document.querySelector('#rgb');
 rgbBtn.addEventListener('click', () => {
   const cells = document.querySelectorAll('.cells');
@@ -127,19 +130,22 @@ rgbBtn.addEventListener('click', () => {
     });
   });
 });
-
+// Function for progressive darkening of a cell
 const greyScale = document.querySelector('#grey-scale');
-
 function progressiveDarken(count) {
+  // Uses whatever the current count value is * 10 and reduces that from the starting 100%
   const brightness = 100 - count * 10;
+  // Hue, saturation, lightness where the l takes the value from the brightness variable
   return `hsl(0, 0%, ${brightness}%)`;
 }
 
 greyScale.addEventListener('click', () => {
   const cells = document.querySelectorAll('.cells');
   cells.forEach((cell) => {
+    // Initialize count to 0. Tracks how many times you've moused over a cell
     let mouseoverCount = 0;
     cell.addEventListener('mouseover', () => {
+      // Incremements 1 to mouseoverCount on every mouseover. 10 is the max
       mouseoverCount = Math.min(mouseoverCount + 1, 10);
       const darkenedColor = progressiveDarken(mouseoverCount);
       cell.style.backgroundColor = darkenedColor;
