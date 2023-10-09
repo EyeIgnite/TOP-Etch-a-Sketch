@@ -3,7 +3,6 @@ const gridContainer = document.querySelector('.grid-container');
 let  storedSize = { columns: 16, cells: 16 };
 let input;
 
-
 // Creates default grid
 function baseGrid(column, cell) {
   makeColumns(column);
