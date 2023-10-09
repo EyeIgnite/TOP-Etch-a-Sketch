@@ -27,7 +27,7 @@ function handleEvent(behavior) {
 function baseGrid(column, cell) {
   makeColumns(column);
   makeCells(cell);
-};
+}
 
 baseGrid(16, 16);
 // Switches color to black when you mouseover each cell/square
@@ -38,16 +38,16 @@ function makeColumns(columnVal) {
   for (let i = 0; i < columnVal; i++) {
     let column = document.createElement('div');
     gridContainer.appendChild(column).classList.add('sketch-columns');
-  };
-};
+  }
+}
 function makeCells(cellVal) {
   for (let i = 0; i < columns.length; i++) {
     for (let c = 0; c < cellVal; c++) {
       let cell = document.createElement('div');
       columns[i].appendChild(cell).classList.add('cells');
-    };
-  };
-};
+    }
+  }
+}
 
 // Click event to clear the current grid and replace it with user input
 const resizeBtn = document.querySelector('#resize');
@@ -95,12 +95,12 @@ clearBtn.addEventListener('click', () => {
 const eraserBtn = document.querySelector('#eraser');
 eraserBtn.addEventListener('click', () => {
   handleEvent('eraser');
-})
+});
 
 const blackBtn = document.querySelector('#black');
 blackBtn.addEventListener('click', () => {
   handleEvent('black');
-})
+});
 // Function for random rgb 
 function randomColor() {
   // Store empty array
@@ -147,4 +147,4 @@ const colorPicker = document.querySelector('#color-picker');
 colorPicker.addEventListener('input', () => {
   pickedColor = colorPicker.value;
   handleEvent('color-picker');
-})
+});
