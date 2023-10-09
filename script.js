@@ -37,10 +37,8 @@ function baseGrid(column, cell) {
 }
 
 baseGrid(16, 16);
-// Switches color to black when you mouseover each cell/square
 handleEvent('black');
 
-// Functions used to create the columns and cells in the DOM
 function makeColumns(columnVal) {
   for (let i = 0; i < columnVal; i++) {
     let column = document.createElement('div');
@@ -57,16 +55,15 @@ function makeCells(cellVal) {
 }
 
 resizeBtn.addEventListener('click', () => {
-  // Repeats until a number between 1-100 is typed in
+
   while(true) {
     input = prompt('Enter a number from 1-100 for a new sketchpad!');
-    // Exits function if user cancels the prompt 
+
     if (input === null) {
       return;
     }
 
     const numberInput = parseInt(input);
-    // checks for input to be in the correct range
     if (numberInput >= 1 && numberInput <= 100) {
     break; 
     }
@@ -74,9 +71,8 @@ resizeBtn.addEventListener('click', () => {
       alert('Please enter a valid number from 1 to 100');
     }
   };
-
   storedSize = { columns: input, cells: input }
-  // Checks the length of gridContainer's children and removes them until none are left
+
   while (gridContainer.childNodes.length > 0) {
     gridContainer.removeChild(gridContainer.lastChild);
   }
@@ -94,7 +90,7 @@ clearBtn.addEventListener('click', () => {
   baseGrid(storedSize.columns, storedSize.cells);
   handleEvent('black')
 });
-// Click event to turn cells from black to white on mouseover
+
 eraserBtn.addEventListener('click', () => {
   handleEvent('eraser');
 });
@@ -102,15 +98,14 @@ eraserBtn.addEventListener('click', () => {
 blackBtn.addEventListener('click', () => {
   handleEvent('black');
 });
-// Function for random rgb 
+
 function randomColor() {
-  // Store empty array
   let color = [];
   // Generates 3 random values for R, G, and B and pushes them into empty array
   for (let i = 0; i < 3; i++) {
     color.push(Math.floor(Math.random() * 256));
   }
-  //Combines the above into one string 'rgb(num1, num2, num3);
+  // Combines the above into one string 'rgb(num1, num2, num3);
   return 'rgb(' + color.join(', ') + ')';
 }
 
@@ -118,11 +113,10 @@ rgbBtn.addEventListener('click', () => {
   handleEvent('rgb');
 });
 
-// Function for progressive darkening of a cell
 function progressiveDarken(count) {
   // Uses whatever the current count value is * 10 and reduces that from the starting 100%
   const brightness = 100 - count * 10;
-  // Hue, saturation, lightness where the l takes the value from the brightness variable
+  // l takes the value from the brightness variable
   return `hsl(0, 0%, ${brightness}%)`;
 }
 
