@@ -34,6 +34,7 @@ h1 {
 }
 
 button {
+  cursor: pointer;
   width: 85px;
   margin-bottom: 30px;
   padding: 8px 20px;
