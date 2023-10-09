@@ -153,3 +153,15 @@ greyScale.addEventListener('click', () => {
   });
 });
 // So when count is 1, the formula for the mouseover becomes '100 - (1 * 10)' resulting in a brightness change of -10%. And that continues each time you mouseover a cell adding 10% on each increment up to 10, eventually resulting in a fully black cell
+
+
+const colorPicker = document.querySelector('#color-picker');
+colorPicker.addEventListener('input', () => {
+  pickedColor = colorPicker.value;
+  const cells = document.querySelectorAll('.cells');
+  cells.forEach((cell) => {
+    cell.addEventListener('mouseover', () => {
+      cell.style.backgroundColor = pickedColor;
+    })
+  })
+})
