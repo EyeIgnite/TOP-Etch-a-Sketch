@@ -12,10 +12,10 @@ function baseGrid(column, cell) {
 
 baseGrid(16, 16);
 // Switches color to black when you mouseover each cell/square
-const items = document.querySelectorAll('.cells');
-items.forEach((item) => {
-  item.addEventListener('mouseover', () => {
-    item.style.backgroundColor = 'black';
+const cells = document.querySelectorAll('.cells');
+cells.forEach((cell) => {
+  cell.addEventListener('mouseover', () => {
+    cell.style.backgroundColor = 'black';
   });
 });
 
@@ -64,10 +64,10 @@ resizeBtn.addEventListener('click', () => {
 
   baseGrid(input, input);
   // Adds mouseoever event to the newly created grid
-  const items = document.querySelectorAll('.cells');
-  items.forEach((item) => {
-    item.addEventListener('mouseover', () => {
-      item.style.backgroundColor = 'black';
+  const cells = document.querySelectorAll('.cells');
+  cells.forEach((cell) => {
+    cell.addEventListener('mouseover', () => {
+      cell.style.backgroundColor = 'black';
     });
   });
 });
@@ -82,30 +82,30 @@ clearBtn.addEventListener('click', () => {
   // Uses the stored grid values from user input to keep cells the same size after clearing
   baseGrid(storedSize.columns, storedSize.cells);
 
-  const items = document.querySelectorAll('.cells');
-  items.forEach((item) => {
-    item.addEventListener('mouseover', () => {
-      item.style.backgroundColor = 'black';
+  const cells = document.querySelectorAll('.cells');
+  cells.forEach((cell) => {
+    cell.addEventListener('mouseover', () => {
+      cell.style.backgroundColor = 'black';
     });
   });
 });
 // Click event to turn all cells from black to white on mouseover
 const eraserBtn = document.querySelector('#eraser');
 eraserBtn.addEventListener('click', () => {
-  const items = document.querySelectorAll('.cells');
-  items.forEach((item) => {
-    item.addEventListener('mouseover', () => {
-      item.style.backgroundColor = 'white';
+  const cells = document.querySelectorAll('.cells');
+  cells.forEach((cell) => {
+    cell.addEventListener('mouseover', () => {
+      cell.style.backgroundColor = 'white';
     });
   });
 })
 
 const blackBtn = document.querySelector('#black');
 blackBtn.addEventListener('click', () => {
-  const items = document.querySelectorAll('.cells');
-  items.forEach((item) => {
-    item.addEventListener('mouseover', () => {
-      item.style.backgroundColor = 'black';
+  const cells = document.querySelectorAll('.cells');
+  cells.forEach((cell) => {
+    cell.addEventListener('mouseover', () => {
+      cell.style.backgroundColor = 'black';
     });
   });
 })
@@ -120,10 +120,10 @@ function randomColor() {
 
 const rgbBtn = document.querySelector('#rgb');
 rgbBtn.addEventListener('click', () => {
-  const items = document.querySelectorAll('.cells');
-  items.forEach((item) => {
-    item.addEventListener('mouseover', () => {
-      item.style.backgroundColor = randomColor();
+  const cells = document.querySelectorAll('.cells');
+  cells.forEach((cell) => {
+    cell.addEventListener('mouseover', () => {
+      cell.style.backgroundColor = randomColor();
     });
   });
 });
@@ -136,13 +136,13 @@ function progressiveDarken(count) {
 }
 
 greyScale.addEventListener('click', () => {
-  const items = document.querySelectorAll('.cells');
-  items.forEach((item) => {
+  const cells = document.querySelectorAll('.cells');
+  cells.forEach((cell) => {
     let mouseoverCount = 0;
-    item.addEventListener('mouseover', () => {
+    cell.addEventListener('mouseover', () => {
       mouseoverCount = Math.min(mouseoverCount + 1, 10);
       const darkenedColor = progressiveDarken(mouseoverCount);
-      item.style.backgroundColor = darkenedColor;
+      cell.style.backgroundColor = darkenedColor;
     });
   });
 });
