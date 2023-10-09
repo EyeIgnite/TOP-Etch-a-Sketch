@@ -25,6 +25,12 @@ label {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+input {
+  cursor: pointer;
+  border-radius: .3rem;
+  padding: 3px;
+}
+
 .btn-container {
   width: 100%;
   display: flex;
