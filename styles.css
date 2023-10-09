@@ -26,9 +26,15 @@ h1 {
   gap: 15px;
 }
 
+.top-btn-container {
+  width: 35%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
 #grey-scale {
-  margin-right: 402px;
-  margin-bottom: 15px;
+  margin-bottom: 13px;
   background-color: #808080;
   color: whitesmoke;
 }
