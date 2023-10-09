@@ -1,5 +1,12 @@
 const columns = document.getElementsByClassName('sketch-columns');
 const gridContainer = document.querySelector('.grid-container');
+const resizeBtn = document.querySelector('#resize');
+const clearBtn = document.querySelector('#clear');
+const eraserBtn = document.querySelector('#eraser');
+const blackBtn = document.querySelector('#black');
+const rgbBtn = document.querySelector('#rgb');
+const greyScale = document.querySelector('#grey-scale');
+const colorPicker = document.querySelector('#color-picker');
 let  storedSize = { columns: 16, cells: 16 };
 let input;
 
@@ -49,8 +56,6 @@ function makeCells(cellVal) {
   }
 }
 
-// Click event to clear the current grid and replace it with user input
-const resizeBtn = document.querySelector('#resize');
 resizeBtn.addEventListener('click', () => {
   // Repeats until a number between 1-100 is typed in
   while(true) {
@@ -80,8 +85,6 @@ resizeBtn.addEventListener('click', () => {
   handleEvent('black');
 });
 
-// Click event to clear the current grid of all colour
-const clearBtn = document.querySelector('#clear');
 clearBtn.addEventListener('click', () => {
 
   while (gridContainer.childNodes.length > 0) {
@@ -92,12 +95,10 @@ clearBtn.addEventListener('click', () => {
   handleEvent('black')
 });
 // Click event to turn cells from black to white on mouseover
-const eraserBtn = document.querySelector('#eraser');
 eraserBtn.addEventListener('click', () => {
   handleEvent('eraser');
 });
 
-const blackBtn = document.querySelector('#black');
 blackBtn.addEventListener('click', () => {
   handleEvent('black');
 });
@@ -113,13 +114,11 @@ function randomColor() {
   return 'rgb(' + color.join(', ') + ')';
 }
 
-const rgbBtn = document.querySelector('#rgb');
 rgbBtn.addEventListener('click', () => {
   handleEvent('rgb');
 });
 
 // Function for progressive darkening of a cell
-const greyScale = document.querySelector('#grey-scale');
 function progressiveDarken(count) {
   // Uses whatever the current count value is * 10 and reduces that from the starting 100%
   const brightness = 100 - count * 10;
@@ -143,7 +142,6 @@ greyScale.addEventListener('click', () => {
 // So when count is 1, the formula for the mouseover becomes '100 - (1 * 10)' resulting in a brightness change of -10%. And that continues each time you mouseover a cell adding 10% on each increment up to 10, eventually resulting in a fully black cell
 
 
-const colorPicker = document.querySelector('#color-picker');
 colorPicker.addEventListener('input', () => {
   pickedColor = colorPicker.value;
   handleEvent('color-picker');
