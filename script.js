@@ -3,6 +3,26 @@ const gridContainer = document.querySelector('.grid-container');
 let  storedSize = { columns: 16, cells: 16 };
 let input;
 
+function handleEvent(behavior) {
+  const cells = document.querySelectorAll('.cells');
+  cells.forEach((cell) => {
+    cell.addEventListener('mouseover', () => {
+      if (behavior === 'eraser') {
+        cell.style.backgroundColor = 'white';
+      }
+     else if (behavior === 'black') {
+        cell.style.backgroundColor = 'black';
+      }
+      else if (behavior === 'rgb') {
+        cell.style.backgroundColor = randomColor();
+      }
+      else if (behavior === 'color-picker') {
+        cell.style.backgroundColor = pickedColor;
+      }
+    });
+  });
+}
+
 // Creates default grid
 function baseGrid(column, cell) {
   makeColumns(column);
@@ -11,12 +31,7 @@ function baseGrid(column, cell) {
 
 baseGrid(16, 16);
 // Switches color to black when you mouseover each cell/square
-const cells = document.querySelectorAll('.cells');
-cells.forEach((cell) => {
-  cell.addEventListener('mouseover', () => {
-    cell.style.backgroundColor = 'black';
-  });
-});
+handleEvent('black');
 
 // Functions used to create the columns and cells in the DOM
 function makeColumns(columnVal) {
@@ -62,13 +77,7 @@ resizeBtn.addEventListener('click', () => {
   }
 
   baseGrid(input, input);
-  // Adds mouseoever event to the newly created grid
-  const cells = document.querySelectorAll('.cells');
-  cells.forEach((cell) => {
-    cell.addEventListener('mouseover', () => {
-      cell.style.backgroundColor = 'black';
-    });
-  });
+  handleEvent('black');
 });
 
 // Click event to clear the current grid of all colour
@@ -80,33 +89,17 @@ clearBtn.addEventListener('click', () => {
   }
   // Uses the stored grid values from user input to keep cells the same size after clearing
   baseGrid(storedSize.columns, storedSize.cells);
-
-  const cells = document.querySelectorAll('.cells');
-  cells.forEach((cell) => {
-    cell.addEventListener('mouseover', () => {
-      cell.style.backgroundColor = 'black';
-    });
-  });
+  handleEvent('black')
 });
 // Click event to turn cells from black to white on mouseover
 const eraserBtn = document.querySelector('#eraser');
 eraserBtn.addEventListener('click', () => {
-  const cells = document.querySelectorAll('.cells');
-  cells.forEach((cell) => {
-    cell.addEventListener('mouseover', () => {
-      cell.style.backgroundColor = 'white';
-    });
-  });
+  handleEvent('eraser');
 })
 
 const blackBtn = document.querySelector('#black');
 blackBtn.addEventListener('click', () => {
-  const cells = document.querySelectorAll('.cells');
-  cells.forEach((cell) => {
-    cell.addEventListener('mouseover', () => {
-      cell.style.backgroundColor = 'black';
-    });
-  });
+  handleEvent('black');
 })
 // Function for random rgb 
 function randomColor() {
@@ -119,16 +112,12 @@ function randomColor() {
   //Combines the above into one string 'rgb(num1, num2, num3);
   return 'rgb(' + color.join(', ') + ')';
 }
-// Event using above function for random rgb every time you mouseover a cell
+
 const rgbBtn = document.querySelector('#rgb');
 rgbBtn.addEventListener('click', () => {
-  const cells = document.querySelectorAll('.cells');
-  cells.forEach((cell) => {
-    cell.addEventListener('mouseover', () => {
-      cell.style.backgroundColor = randomColor();
-    });
-  });
+  handleEvent('rgb');
 });
+
 // Function for progressive darkening of a cell
 const greyScale = document.querySelector('#grey-scale');
 function progressiveDarken(count) {
@@ -157,10 +146,5 @@ greyScale.addEventListener('click', () => {
 const colorPicker = document.querySelector('#color-picker');
 colorPicker.addEventListener('input', () => {
   pickedColor = colorPicker.value;
-  const cells = document.querySelectorAll('.cells');
-  cells.forEach((cell) => {
-    cell.addEventListener('mouseover', () => {
-      cell.style.backgroundColor = pickedColor;
-    })
-  })
+  handleEvent('color-picker');
 })
